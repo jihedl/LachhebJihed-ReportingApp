@@ -35,5 +35,6 @@ export interface Facture {
     isBanque  : Boolean  ;
     montantPreleve : number  ;
     idPrelevement : number  ;
+    montantTotalC:number;
 
 }

@@ -32,7 +32,8 @@ export class BarchartComponent implements OnInit {
     .subscribe((res: Facture[]) => {
       const localChartData = this.getChartData(res);
       this.barChartLabels = localChartData.map(x => x[0]);
-        this.barChartData = [{ 'data': localChartData.map(x => x[1]), 'label': 'MontantTota'}];
+        this.barChartData = [{ 'data': localChartData.map(x => x[1]), 'label': 'Montant Total'},
+                              { 'data': localChartData.map(x => x[2]), 'label': 'Montant Total Client'}];
     });
   
   }
@@ -41,7 +42,7 @@ export class BarchartComponent implements OnInit {
     this.factures = res;
 
     const formattedMontant = this.factures.reduce((r:Array<any>, e) => {
-      r.push([e.periode, e.montantTotal]);
+      r.push([e.periode, e.montantTotal, e.montantTotalC]);
     return r;
     }, []);
   
